@@ -55,8 +55,8 @@ Filtering tasks by description:
 ```bash
 curl -X GET -G \
   'http://localhost:8080/api/tasks' \
-  -d 'description=avocado' \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -d 'description=avocado'
 ```
 
 Filtering tasks by completed status:
@@ -64,8 +64,8 @@ Filtering tasks by completed status:
 ```bash
 curl -X GET -G \
   'http://localhost:8080/api/tasks' \
-  -d 'completed=true' \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -d 'completed=true'
 ```
 
 Filtering tasks by description and completed status:
@@ -73,9 +73,9 @@ Filtering tasks by description and completed status:
 ```bash
 curl -X GET -G \
   'http://localhost:8080/api/tasks' \
+  -H 'Accept: application/json' \
   -d 'description=karate' \
-  -d 'completed=true' \
-  -H 'Accept: application/json'
+  -d 'completed=true'
 ```
 
 ### Get a task by id

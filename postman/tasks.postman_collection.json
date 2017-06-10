@@ -45,6 +45,123 @@
 			"response": []
 		},
 		{
+			"name": "Get tasks by description",
+			"request": {
+				"url": {
+					"raw": "{{config.baseUrl}}/api/tasks?description=avocado",
+					"auth": {},
+					"host": [
+						"{{config",
+						"baseUrl}}"
+					],
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "avocado",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get tasks by completed status",
+			"request": {
+				"url": {
+					"raw": "{{config.baseUrl}}/api/tasks?completed=false",
+					"auth": {},
+					"host": [
+						"{{config",
+						"baseUrl}}"
+					],
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "completed",
+							"value": "false",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get all tasks by description and completed status",
+			"request": {
+				"url": {
+					"raw": "{{config.baseUrl}}/api/tasks?description=karate&completed=true",
+					"auth": {},
+					"host": [
+						"{{config",
+						"baseUrl}}"
+					],
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "karate",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "completed",
+							"value": "true",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "Get a task by id",
 			"request": {
 				"url": "{{config.baseUrl}}/api/tasks/5",
@@ -75,7 +192,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"description\": \"Pay electricity bill\",\n  \"completed\": true\n}"
+					"raw": "{\n  \"description\": \"Pay electricity bill\",\n  \"completed\": false\n}"
 				},
 				"description": ""
 			},
