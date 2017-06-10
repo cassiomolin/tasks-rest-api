@@ -7,6 +7,7 @@ Example of REST API using:
 * Jackson
 * MapStruct
 * Hibernate Validator
+* REST Assured
 
 ## How to build and run this application?
 
@@ -98,14 +99,14 @@ curl -X PUT \
 }'
 ```
 
-### Update a task status
+### Update a task completed status
 
 ```bash
 curl -X PUT \
-  http://localhost:8080/api/tasks/5/status \
+  http://localhost:8080/api/tasks/5/completed \
   -H 'Content-Type: application/json' \
   -d '{
-  "completed": true
+  "value": true
 }'
 ```
 

@@ -14,6 +14,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring-boot.version>1.5.4.RELEASE</spring-boot.version>
         <mapstruct.version>1.1.0.Final</mapstruct.version>
+        <rest-assured.version>3.0.3</rest-assured.version>
     </properties>
 
     <dependencyManagement>
@@ -66,6 +67,14 @@
             <artifactId>mapstruct-processor</artifactId>
             <version>${mapstruct.version}</version>
             <scope>optional</scope>
+        </dependency>
+
+        <!-- REST Assured -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

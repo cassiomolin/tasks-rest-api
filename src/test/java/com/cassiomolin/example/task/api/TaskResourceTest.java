@@ -3,6 +3,7 @@ package com.cassiomolin.example.task.api;
 import com.cassiomolin.example.task.api.model.CreateTaskDetails;
 import com.cassiomolin.example.task.api.model.QueryTaskResult;
 import com.cassiomolin.example.task.api.model.UpdateTaskStatusDetails;
+import io.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,19 +11,11 @@ import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
-import java.net.URI;
-import java.util.List;
+import java.util.Arrays;
 
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
-import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -31,14 +24,11 @@ public class TaskResourceTest {
     @LocalServerPort
     private int port;
 
-    private URI uri;
-
-    private Client client;
-
     @Before
     public void setUp() throws Exception {
-        this.uri = new URI("http://localhost:" + port + "/api");
-        this.client = ClientBuilder.newClient();
+        RestAssured.baseURI = "http://localhost";
+        RestAssured.port = port;
+        RestAssured.basePath = "/api";
     }
 
     @Test
@@ -47,48 +37,96 @@ public class TaskResourceTest {
         CreateTaskDetails createTaskDetails = new CreateTaskDetails();
         createTaskDetails.setDescription("Pay electricity bill");
 
-        Response response = client.target(uri).path("tasks").request()
-                .post(Entity.entity(createTaskDetails, MediaType.APPLICATION_JSON));
-        assertEquals(Status.CREATED.getStatusCode(), response.getStatus());
-
-        String location = response.getStringHeaders().getFirst(HttpHeaders.LOCATION);
-        assertNotNull(location);
+        given()
+            .accept("application/json")
+            .contentType("application/json")
+            .body(createTaskDetails)
+        .expect()
+            .statusCode(201)
+            .header("Location", notNullValue())
+        .when()
+            .post("/tasks")
+        .then()
+            .log().all();
     }
 
     @Test
     public void findTasks() {
 
-        Response response = client.target(uri).path("tasks").request().accept(MediaType.APPLICATION_JSON).get();
-        assertEquals(Status.OK.getStatusCode(), response.getStatus());
+        QueryTaskResult[] taskQueryResults =
 
-        List<QueryTaskResult> queryTaskResults = response.readEntity(new GenericType<List<QueryTaskResult>>() {});
-        assertNotNull(queryTaskResults);
+            given()
+                .accept("application/json")
+            .expect()
+                .statusCode(200)
+                .contentType("application/json")
+            .when()
+                .get("/tasks")
+            .then()
+                .log().all()
+                .extract()
+                    .body().as(QueryTaskResult[].class);
+
+        Arrays.stream(taskQueryResults).forEach(task -> {
+            assertNotNull(task.getId());
+            assertNotNull(task.getDescription());
+            assertNotNull(task.getCompleted());
+        });
     }
 
     @Test
     public void getTask() {
 
-        Response response = client.target(uri).path("tasks").path("3").request().accept(MediaType.APPLICATION_JSON).get();
-        assertEquals(Status.OK.getStatusCode(), response.getStatus());
+        QueryTaskResult queryTaskResult =
 
-        QueryTaskResult queryTaskResult = response.readEntity(QueryTaskResult.class);
-        assertNotNull(queryTaskResult);
+            given()
+                .accept("application/json")
+                .pathParam("taskId", 1)
+            .expect()
+                .statusCode(200)
+                .contentType("application/json")
+            .when()
+                .get("/tasks/{taskId}")
+            .then()
+                .log().all()
+                .extract()
+                    .body().as(QueryTaskResult.class);
+
+        assertNotNull(queryTaskResult.getId());
+        assertNotNull(queryTaskResult.getDescription());
+        assertNotNull(queryTaskResult.getCompleted());
     }
 
 
     @Test
     public void deleteTask() {
-        Response response = client.target(uri).path("tasks").path("2").request().delete();
-        assertEquals(Status.NO_CONTENT.getStatusCode(), response.getStatus());
+
+        given()
+            .pathParam("taskId", 1)
+        .expect()
+            .statusCode(204)
+        .when()
+            .delete("/tasks/{taskId}")
+        .then()
+            .log().all();
     }
 
     @Test
     public void updateTaskStatus() {
 
-        UpdateTaskStatusDetails updateTaskStatusDetails = new UpdateTaskStatusDetails();
-        updateTaskStatusDetails.setCompleted(true);
+        UpdateTaskStatusDetails updateTaskDetails = new UpdateTaskStatusDetails();
+        updateTaskDetails.setValue(true);
 
-        Response response = client.target(uri).path("tasks").path("1").request().delete();
-        assertEquals(Status.NO_CONTENT.getStatusCode(), response.getStatus());
+        given()
+            .accept("application/json")
+            .contentType("application/json")
+            .body(updateTaskDetails)
+            .pathParam("taskId", 1)
+        .expect()
+            .statusCode(204)
+        .when()
+            .put("/tasks/{taskId}/completed")
+        .then()
+            .log().all();
     }
 }

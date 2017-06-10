@@ -199,9 +199,9 @@
 			"response": []
 		},
 		{
-			"name": "Update a task status",
+			"name": "Update a task completed status",
 			"request": {
-				"url": "{{config.baseUrl}}/api/tasks/5/status",
+				"url": "{{config.baseUrl}}/api/tasks/5/completed",
 				"method": "PUT",
 				"header": [
 					{
@@ -212,7 +212,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"completed\": true\n}"
+					"raw": "{\n  \"value\": true\n}"
 				},
 				"description": ""
 			},

@@ -7,6 +7,7 @@ import com.cassiomolin.example.task.api.model.UpdateTaskDetails;
 import com.cassiomolin.example.task.api.model.UpdateTaskStatusDetails;
 import com.cassiomolin.example.task.domain.Task;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.ReportingPolicy;
 
@@ -28,5 +29,6 @@ public interface TaskMapper {
 
     void updateTask(UpdateTaskDetails updateTaskDetails, @MappingTarget Task task);
 
+    @Mapping(source = "value", target = "completed")
     void updateTask(UpdateTaskStatusDetails updateTaskStatusDetails, @MappingTarget Task task);
 }

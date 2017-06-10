@@ -86,7 +86,7 @@ public class TaskResource {
     }
 
     @PUT
-    @Path("{taskId}/status")
+    @Path("{taskId}/completed")
     public Response updateTaskStatus(@PathParam("taskId") Long taskId,
                                      @Valid @NotNull UpdateTaskStatusDetails updateTaskStatusDetails) {
         Task task = taskService.findTask(taskId).orElseThrow(NotFoundException::new);
