@@ -6,6 +6,7 @@ import com.cassiomolin.example.task.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -64,8 +65,10 @@ public class TaskService {
                 .withMatcher("description", match -> match.contains().ignoreCase());
         Example<Task> example = Example.of(task, matcher);
 
+        Sort sort = new Sort(Sort.Direction.ASC, "description");
+
         List<Task> list = new ArrayList<>();
-        taskRepository.findAll(example).forEach(list::add);
+        taskRepository.findAll(example, sort).forEach(list::add);
 
         return list;
     }
