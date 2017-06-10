@@ -1,8 +1,11 @@
 package com.cassiomolin.example.task.service;
 
 import com.cassiomolin.example.task.domain.Task;
+import com.cassiomolin.example.task.domain.TaskFilter;
 import com.cassiomolin.example.task.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,6 +45,28 @@ public class TaskService {
     public List<Task> findAllTasks() {
         List<Task> list = new ArrayList<>();
         taskRepository.findAll().forEach(list::add);
+        return list;
+    }
+
+
+    /**
+     * Find tasks.
+     *
+     * @return
+     */
+    public List<Task> findTasks(TaskFilter filter) {
+
+        Task task = new Task();
+        task.setDescription(filter.getDescription());
+        task.setCompleted(filter.getCompleted());
+
+        ExampleMatcher matcher = ExampleMatcher.matching()
+                .withMatcher("description", match -> match.contains().ignoreCase());
+        Example<Task> example = Example.of(task, matcher);
+
+        List<Task> list = new ArrayList<>();
+        taskRepository.findAll(example).forEach(list::add);
+
         return list;
     }
 

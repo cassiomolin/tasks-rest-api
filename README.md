@@ -32,7 +32,7 @@ The provides a REST API that currently supports the following operations to mana
 ```bash
 curl -X POST \
   http://localhost:8080/api/tasks \
-  -H 'content-type: application/json' \
+  -H 'Content-Type: application/json' \
   -d '{
   "description": "Pay internet bill"
 }'
@@ -42,7 +42,40 @@ curl -X POST \
 ```bash
 curl -X GET \
   http://localhost:8080/api/tasks \
-  -H 'accept: application/json'
+  -H 'Accept: application/json'
+```
+
+This endpoint supports the following query parameters:
+
+- `description` (string): Filter tasks by description (case-insensitive).
+- `completed` (boolean): Filter tasks by completed status.
+
+Filtering tasks by description:
+
+```bash
+curl -X GET -G \
+  'http://localhost:8080/api/tasks' \
+  -d 'description=avocado' \
+  -H 'Accept: application/json'
+```
+
+Filtering tasks by completed status:
+
+```bash
+curl -X GET -G \
+  'http://localhost:8080/api/tasks' \
+  -d 'completed=true' \
+  -H 'Accept: application/json'
+```
+
+Filtering tasks by description and completed status:
+
+```bash
+curl -X GET -G \
+  'http://localhost:8080/api/tasks' \
+  -d 'description=karate' \
+  -d 'completed=true' \
+  -H 'Accept: application/json'
 ```
 
 ### Get a task by id
@@ -50,7 +83,7 @@ curl -X GET \
 ```bash
 curl -X GET \
   http://localhost:8080/api/tasks/5 \
-  -H 'accept: application/json'
+  -H 'Accept: application/json'
 ```
 
 ### Update a task
@@ -58,7 +91,7 @@ curl -X GET \
 ```bash
 curl -X PUT \
   http://localhost:8080/api/tasks/5 \
-  -H 'content-type: application/json' \
+  -H 'Content-Type: application/json' \
   -d '{
   "description": "Pay electricity bill",
   "completed": false
@@ -70,7 +103,7 @@ curl -X PUT \
 ```bash
 curl -X PUT \
   http://localhost:8080/api/tasks/5/status \
-  -H 'content-type: application/json' \
+  -H 'Content-Type: application/json' \
   -d '{
   "completed": true
 }'

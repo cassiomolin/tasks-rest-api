@@ -7,6 +7,7 @@ import com.cassiomolin.example.task.api.model.UpdateTaskDetails;
 import com.cassiomolin.example.task.api.model.UpdateTaskStatusDetails;
 import com.cassiomolin.example.task.api.model.mapper.TaskMapper;
 import com.cassiomolin.example.task.domain.Task;
+import com.cassiomolin.example.task.domain.TaskFilter;
 import com.cassiomolin.example.task.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -50,8 +51,10 @@ public class TaskResource {
     }
 
     @GET
-    public Response findTasks() {
-        List<Task> tasks = taskService.findAllTasks();
+    public Response findTasks(@QueryParam("description") String description,
+                              @QueryParam("completed") Boolean completed) {
+        TaskFilter filter = new TaskFilter().setDescription(description).setCompleted(completed);
+        List<Task> tasks = taskService.findTasks(filter);
         List<QueryTaskResult> queryTaskResults = taskMapper.toQueryTaskResults(tasks);
         return Response.ok(queryTaskResults).build();
     }
