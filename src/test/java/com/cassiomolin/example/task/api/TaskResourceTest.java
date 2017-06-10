@@ -2,6 +2,7 @@ package com.cassiomolin.example.task.api;
 
 import com.cassiomolin.example.task.api.model.CreateTaskDetails;
 import com.cassiomolin.example.task.api.model.QueryTaskResult;
+import com.cassiomolin.example.task.api.model.UpdateTaskDetails;
 import com.cassiomolin.example.task.api.model.UpdateTaskStatusDetails;
 import io.restassured.RestAssured;
 import org.junit.Before;
@@ -100,6 +101,25 @@ public class TaskResourceTest {
         assertNotNull(queryTaskResult.getCompleted());
     }
 
+    @Test
+    public void updateTask() {
+
+        UpdateTaskDetails updateTaskDetails = new UpdateTaskDetails();
+        updateTaskDetails.setDescription("Buy chocolate");
+        updateTaskDetails.setCompleted(false);
+
+        given()
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(updateTaskDetails)
+            .pathParam("taskId", 1)
+        .expect()
+            .statusCode(Status.NO_CONTENT.getStatusCode())
+        .when()
+            .put("/tasks/{taskId}")
+        .then()
+            .log().all();
+    }
 
     @Test
     public void deleteTask() {
@@ -117,13 +137,13 @@ public class TaskResourceTest {
     @Test
     public void updateTaskStatus() {
 
-        UpdateTaskStatusDetails updateTaskDetails = new UpdateTaskStatusDetails();
-        updateTaskDetails.setValue(true);
+        UpdateTaskStatusDetails updateTaskStatusDetails = new UpdateTaskStatusDetails();
+        updateTaskStatusDetails.setValue(true);
 
         given()
             .accept(MediaType.APPLICATION_JSON)
             .contentType(MediaType.APPLICATION_JSON)
-            .body(updateTaskDetails)
+            .body(updateTaskStatusDetails)
             .pathParam("taskId", 1)
         .expect()
             .statusCode(Status.NO_CONTENT.getStatusCode())
