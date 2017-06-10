@@ -11,6 +11,9 @@ import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response.Status;
 import java.util.Arrays;
 
 import static io.restassured.RestAssured.given;
@@ -38,12 +41,12 @@ public class TaskResourceTest {
         createTaskDetails.setDescription("Pay electricity bill");
 
         given()
-            .accept("application/json")
-            .contentType("application/json")
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .body(createTaskDetails)
         .expect()
-            .statusCode(201)
-            .header("Location", notNullValue())
+            .statusCode(Status.CREATED.getStatusCode())
+            .header(HttpHeaders.LOCATION, notNullValue())
         .when()
             .post("/tasks")
         .then()
@@ -56,10 +59,10 @@ public class TaskResourceTest {
         QueryTaskResult[] taskQueryResults =
 
             given()
-                .accept("application/json")
+                .accept(MediaType.APPLICATION_JSON)
             .expect()
-                .statusCode(200)
-                .contentType("application/json")
+                .statusCode(Status.OK.getStatusCode())
+                .contentType(MediaType.APPLICATION_JSON)
             .when()
                 .get("/tasks")
             .then()
@@ -80,11 +83,11 @@ public class TaskResourceTest {
         QueryTaskResult queryTaskResult =
 
             given()
-                .accept("application/json")
+                .accept(MediaType.APPLICATION_JSON)
                 .pathParam("taskId", 1)
             .expect()
-                .statusCode(200)
-                .contentType("application/json")
+                .statusCode(Status.OK.getStatusCode())
+                .contentType(MediaType.APPLICATION_JSON)
             .when()
                 .get("/tasks/{taskId}")
             .then()
@@ -104,7 +107,7 @@ public class TaskResourceTest {
         given()
             .pathParam("taskId", 1)
         .expect()
-            .statusCode(204)
+            .statusCode(Status.NO_CONTENT.getStatusCode())
         .when()
             .delete("/tasks/{taskId}")
         .then()
@@ -118,12 +121,12 @@ public class TaskResourceTest {
         updateTaskDetails.setValue(true);
 
         given()
-            .accept("application/json")
-            .contentType("application/json")
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .body(updateTaskDetails)
             .pathParam("taskId", 1)
         .expect()
-            .statusCode(204)
+            .statusCode(Status.NO_CONTENT.getStatusCode())
         .when()
             .put("/tasks/{taskId}/completed")
         .then()
