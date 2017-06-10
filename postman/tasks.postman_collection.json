@@ -85,7 +85,7 @@
 			"name": "Get tasks by completed status",
 			"request": {
 				"url": {
-					"raw": "{{config.baseUrl}}/api/tasks?completed=false",
+					"raw": "{{config.baseUrl}}/api/tasks?completed=true",
 					"auth": {},
 					"host": [
 						"{{config",
@@ -98,7 +98,7 @@
 					"query": [
 						{
 							"key": "completed",
-							"value": "false",
+							"value": "true",
 							"equals": true,
 							"description": ""
 						}
