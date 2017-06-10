@@ -25,7 +25,7 @@ To build and run this application, follow these steps:
 
 When the application starts up, the database will be populated with some rows. 
 
-The provides a REST API that currently supports the following operations to manage tasks:
+The application provides a REST API that currently supports the following operations to manage tasks:
 
 ### Create a task
 
