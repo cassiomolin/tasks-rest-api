@@ -283,22 +283,27 @@ public class ConstraintViolationExceptionMapper implements ExceptionMapper<Const
             parameterDetails.setType(REQUEST_QUERY_PARAMETER);
             parameterDetails.setName(((QueryParam) annotation).value());
             return Optional.of(parameterDetails);
+
         } else if (annotation instanceof PathParam) {
             parameterDetails.setType(REQUEST_PATH_PARAMETER);
             parameterDetails.setName(((PathParam) annotation).value());
             return Optional.of(parameterDetails);
+
         } else if (annotation instanceof HeaderParam) {
             parameterDetails.setType(REQUEST_HEADER_PARAMETER);
             parameterDetails.setName(((HeaderParam) annotation).value());
             return Optional.of(parameterDetails);
+
         } else if (annotation instanceof CookieParam) {
             parameterDetails.setType(REQUEST_COOKIE_PARAMETER);
             parameterDetails.setName(((CookieParam) annotation).value());
             return Optional.of(parameterDetails);
+
         } else if (annotation instanceof FormParam) {
             parameterDetails.setType(REQUEST_FORM_PARAMETER);
             parameterDetails.setName(((FormParam) annotation).value());
             return Optional.of(parameterDetails);
+
         } else if (annotation instanceof MatrixParam) {
             parameterDetails.setType(REQUEST_MATRIX_PARAMETER);
             parameterDetails.setName(((MatrixParam) annotation).value());
