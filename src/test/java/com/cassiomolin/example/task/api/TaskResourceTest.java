@@ -55,6 +55,23 @@ public class TaskResourceTest {
     }
 
     @Test
+    public void createTaskWithInvalidDetails() {
+
+        CreateTaskDetails createTaskDetails = new CreateTaskDetails();
+
+        given()
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(createTaskDetails)
+        .expect()
+            .statusCode(Status.BAD_REQUEST.getStatusCode())
+        .when()
+            .post("/tasks")
+        .then()
+            .log().all();
+    }
+
+    @Test
     public void findTasks() {
 
         QueryTaskResult[] taskQueryResults =
@@ -102,6 +119,21 @@ public class TaskResourceTest {
     }
 
     @Test
+    public void getTaskWithInvalidIdentifier() {
+
+        given()
+            .accept(MediaType.APPLICATION_JSON)
+            .pathParam("taskId", Integer.MAX_VALUE)
+        .expect()
+            .statusCode(Status.NOT_FOUND.getStatusCode())
+            .contentType(MediaType.APPLICATION_JSON)
+        .when()
+            .get("/tasks/{taskId}")
+        .then()
+            .log().all();
+    }
+
+    @Test
     public void updateTask() {
 
         UpdateTaskDetails updateTaskDetails = new UpdateTaskDetails();
@@ -122,12 +154,44 @@ public class TaskResourceTest {
     }
 
     @Test
+    public void updateTaskWithInvalidDetails() {
+
+        UpdateTaskDetails updateTaskDetails = new UpdateTaskDetails();
+
+        given()
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(updateTaskDetails)
+            .pathParam("taskId", 1)
+        .expect()
+            .statusCode(Status.BAD_REQUEST.getStatusCode())
+        .when()
+            .put("/tasks/{taskId}")
+        .then()
+            .log().all();
+    }
+
+    @Test
     public void deleteTask() {
 
         given()
             .pathParam("taskId", 1)
         .expect()
             .statusCode(Status.NO_CONTENT.getStatusCode())
+        .when()
+            .delete("/tasks/{taskId}")
+        .then()
+            .log().all();
+    }
+
+
+    @Test
+    public void deleteTaskWithInvalidIdentifier() {
+
+        given()
+            .pathParam("taskId", Integer.MAX_VALUE)
+        .expect()
+            .statusCode(Status.NOT_FOUND.getStatusCode())
         .when()
             .delete("/tasks/{taskId}")
         .then()
