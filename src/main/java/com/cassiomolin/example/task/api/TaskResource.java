@@ -37,10 +37,10 @@ public class TaskResource {
     private UriInfo uriInfo;
 
     @Autowired
-    private TaskService taskService;
+    private TaskMapper taskMapper;
 
     @Autowired
-    private TaskMapper taskMapper;
+    private TaskService taskService;
 
     @POST
     public Response createTask(@Valid @NotNull CreateTaskDetails createTaskDetails) {

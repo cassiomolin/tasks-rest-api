@@ -45,12 +45,18 @@ public class ConstraintViolationExceptionMapper implements ExceptionMapper<Const
     @Context
     private Providers providers;
 
+    private static final String REQUEST_ENTITY = "requestEntity";
+    private static final String REQUEST_ENTITY_PROPERTY = "requestEntityProperty";
+    private static final String REQUEST_QUERY_PARAMETER = "requestQueryParameter";
+    private static final String REQUEST_PATH_PARAMETER = "requestPathParameter";
+    private static final String REQUEST_HEADER_PARAMETER = "requestHeaderParameter";
+    private static final String REQUEST_COOKIE_PARAMETER = "requestCookieParameter";
+    private static final String REQUEST_FORM_PARAMETER = "requestFormParameter";
+    private static final String REQUEST_MATRIX_PARAMETER = "requestMatrixParameter";
+
     @Override
     public Response toResponse(ConstraintViolationException exception) {
-
         ApiError error = mapToApiError(exception);
-
-        // TODO choose the most appropriated status code depending on the node types
         return Response.status(Response.Status.BAD_REQUEST).entity(error).type(MediaType.APPLICATION_JSON).build();
     }
 
@@ -122,7 +128,7 @@ public class ConstraintViolationExceptionMapper implements ExceptionMapper<Const
         Optional<String> optionalJsonProperty = getJsonPropertyName(mapper, beanClass, leafNode.getName());
         if (optionalJsonProperty.isPresent()) {
             ValidationError error = new ValidationError();
-            error.setType("property");
+            error.setType(REQUEST_ENTITY_PROPERTY);
             error.setName(optionalJsonProperty.get());
             error.setMessage(constraintViolation.getMessage());
             return error;
@@ -169,7 +175,7 @@ public class ConstraintViolationExceptionMapper implements ExceptionMapper<Const
 
             // Assumes that the request entity is invalid (annotated method parameter)
             ValidationError error = new ValidationError();
-            error.setType("entity");
+            error.setType(REQUEST_ENTITY);
             error.setMessage(constraintViolation.getMessage());
             return error;
         }
@@ -274,27 +280,27 @@ public class ConstraintViolationExceptionMapper implements ExceptionMapper<Const
         ParameterDetails parameterDetails = new ParameterDetails();
 
         if (annotation instanceof QueryParam) {
-            parameterDetails.setType("query");
+            parameterDetails.setType(REQUEST_QUERY_PARAMETER);
             parameterDetails.setName(((QueryParam) annotation).value());
             return Optional.of(parameterDetails);
         } else if (annotation instanceof PathParam) {
-            parameterDetails.setType("path");
+            parameterDetails.setType(REQUEST_PATH_PARAMETER);
             parameterDetails.setName(((PathParam) annotation).value());
             return Optional.of(parameterDetails);
         } else if (annotation instanceof HeaderParam) {
-            parameterDetails.setType("header");
+            parameterDetails.setType(REQUEST_HEADER_PARAMETER);
             parameterDetails.setName(((HeaderParam) annotation).value());
             return Optional.of(parameterDetails);
         } else if (annotation instanceof CookieParam) {
-            parameterDetails.setType("cookie");
+            parameterDetails.setType(REQUEST_COOKIE_PARAMETER);
             parameterDetails.setName(((CookieParam) annotation).value());
             return Optional.of(parameterDetails);
         } else if (annotation instanceof FormParam) {
-            parameterDetails.setType("form");
+            parameterDetails.setType(REQUEST_FORM_PARAMETER);
             parameterDetails.setName(((FormParam) annotation).value());
             return Optional.of(parameterDetails);
         } else if (annotation instanceof MatrixParam) {
-            parameterDetails.setType("matrix");
+            parameterDetails.setType(REQUEST_MATRIX_PARAMETER);
             parameterDetails.setName(((MatrixParam) annotation).value());
             return Optional.of(parameterDetails);
         }
