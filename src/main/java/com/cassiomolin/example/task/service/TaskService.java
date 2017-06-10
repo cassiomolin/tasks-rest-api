@@ -49,13 +49,13 @@ public class TaskService {
         return list;
     }
 
-
     /**
      * Find tasks.
      *
+     * @param filter
      * @return
      */
-    public List<Task> findTasks(TaskFilter filter) {
+    public List<Task> findTasks(@NotNull TaskFilter filter) {
 
         Task task = new Task();
         task.setDescription(filter.getDescription());
