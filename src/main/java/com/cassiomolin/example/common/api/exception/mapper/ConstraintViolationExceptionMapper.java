@@ -339,7 +339,12 @@ public class ConstraintViolationExceptionMapper implements ExceptionMapper<Const
     private static class ParameterDetails {
 
         private String type;
+
         private String name;
+
+        public ParameterDetails() {
+
+        }
 
         public String getType() {
             return type;
