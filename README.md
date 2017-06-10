@@ -69,7 +69,7 @@ curl -X GET -G \
   -d 'completed=true'
 ```
 
-Filtering tasks by description and completed status:
+Filtering tasks by description and by completed status:
 
 ```bash
 curl -X GET -G \
