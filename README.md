@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cassiomolin/spring-jersey.svg?branch=master)](https://travis-ci.org/cassiomolin/spring-jersey)
+
 # tasks
 
 Example of REST API using:
