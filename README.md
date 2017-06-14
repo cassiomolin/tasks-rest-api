@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/cassiomolin/tasks.svg?branch=master)](https://travis-ci.org/cassiomolin/tasks)
+Tasks API
 
-# tasks
+[![Build Status](https://travis-ci.org/cassiomolin/tasks.svg?branch=master)](https://travis-ci.org/cassiomolin/tasks)
 
 Example of REST API using:
 
