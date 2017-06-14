@@ -1,4 +1,4 @@
-Tasks API
+# Tasks API
 
 [![Build Status](https://travis-ci.org/cassiomolin/tasks.svg?branch=master)](https://travis-ci.org/cassiomolin/tasks)
 
