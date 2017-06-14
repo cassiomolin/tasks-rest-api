@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/cassiomolin/spring-jersey.svg?branch=master)](https://travis-ci.org/cassiomolin/spring-jersey)
+[![Build Status](https://travis-ci.org/cassiomolin/tasks.svg?branch=master)](https://travis-ci.org/cassiomolin/tasks)
 
 # tasks
 
