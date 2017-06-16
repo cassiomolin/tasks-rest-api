@@ -1,6 +1,7 @@
 # Tasks API
 
 [![Build Status](https://travis-ci.org/cassiomolin/tasks.svg?branch=master)](https://travis-ci.org/cassiomolin/tasks)
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/cassiomolin/tasks/master/LICENSE.txt)
 
 Example of REST API using:
 
