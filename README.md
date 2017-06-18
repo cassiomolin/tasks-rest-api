@@ -1,7 +1,7 @@
-# Tasks API
+# Sample REST API for managing tasks using Spring Boot and Jersey
 
-[![Build Status](https://travis-ci.org/cassiomolin/tasks.svg?branch=master)](https://travis-ci.org/cassiomolin/tasks)
-[![MIT Licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/cassiomolin/tasks/master/LICENSE.txt)
+[![Build Status](https://travis-ci.org/cassiomolin/tasks-springboot-jersey.svg?branch=master)](https://travis-ci.org/cassiomolin/tasks-springboot-jersey)
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/cassiomolin/tasks-springboot-jersey/master/LICENSE.txt)
 
 Example of REST API using:
 
@@ -21,8 +21,8 @@ To build and run this application, follow these steps:
 1. Compile the project: `mvn clean compile`.
 1. Package the application: `mvn package`.
 1. Change into the `target` directory: `cd target`
-1. You should see a file with the following or a similar name: `tasks-1.0.jar`.
-1. Execute the JAR: `java -jar tasks-1.0.jar`.
+1. You should see a file with the following or a similar name: `tasks-springboot-jersey-1.0.jar`.
+1. Execute the JAR: `java -jar tasks-springboot-jersey-1.0.jar`.
 1. The application should be available at `http://localhost:8080/api`.
 
 ## What will you find in this application?
