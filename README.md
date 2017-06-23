@@ -5,12 +5,12 @@
 
 Example of REST API using:
 
-* Spring Boot
-* Jersey
-* Jackson
-* MapStruct
-* Hibernate Validator
-* REST Assured
+- **Spring Boot:** Framework for creating standalone Java applications
+- **Jersey:** JAX-RS reference implementation for creating RESTful web services in Java
+- **Jackson:** JSON parser for Java
+- **MapStruct:** Mapping framework for Java
+- **Hibernate Validator:** Bean Validation implemetation to define and validate application constraints
+- **REST Assured:** Testing framework for REST APIs
 
 ## How to build and run this application?
 
