@@ -5,14 +5,14 @@
 
 Example of REST API using:
 
-- **Spring Boot:** Framework for creating standalone Java applications
-- **Jersey:** JAX-RS reference implementation for creating RESTful web services in Java
-- **Jackson:** JSON parser for Java
-- **MapStruct:** Mapping framework for Java
-- **Hibernate Validator:** Bean Validation implemetation to define and validate application constraints
-- **REST Assured:** Testing framework for REST APIs
+- **Spring Boot:** Framework for creating standalone Java applications.
+- **Jersey:** JAX-RS reference implementation for creating RESTful web services in Java.
+- **Jackson:** JSON parser for Java.
+- **MapStruct:** Mapping framework for Java.
+- **Hibernate Validator:** Bean Validation implemetation to define and validate application constraints.
+- **REST Assured:** Testing framework for REST APIs.
 
-## How to build and run this application?
+## Building and running this application
 
 To build and run this application, follow these steps:
 
@@ -25,9 +25,9 @@ To build and run this application, follow these steps:
 1. Execute the JAR: `java -jar tasks-springboot-jersey-1.0.jar`.
 1. The application should be available at `http://localhost:8080/api`.
 
-## What will you find in this application?
-
 When the application starts up, the database will be populated with some rows. 
+
+## REST API overview
 
 The application provides a REST API that currently supports the following operations to manage tasks:
 
