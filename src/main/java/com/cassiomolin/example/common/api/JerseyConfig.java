@@ -4,6 +4,7 @@ import com.cassiomolin.example.common.api.exception.mapper.ConstraintViolationEx
 import com.cassiomolin.example.common.api.exception.mapper.JsonMappingExceptionMapper;
 import com.cassiomolin.example.common.api.exception.mapper.JsonParseExceptionMapper;
 import com.cassiomolin.example.common.api.filter.CorsFilter;
+import com.cassiomolin.example.common.api.provider.ObjectMapperProvider;
 import com.cassiomolin.example.task.api.TaskResource;
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -35,5 +36,6 @@ public class JerseyConfig extends ResourceConfig {
         register(ConstraintViolationExceptionMapper.class);
         register(JsonMappingExceptionMapper.class);
         register(JsonParseExceptionMapper.class);
+        register(ObjectMapperProvider.class);
     }
 }

@@ -1,9 +1,8 @@
 package com.cassiomolin.example.task.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * JPA entity that represents a task.
@@ -22,6 +21,9 @@ public class Task {
 
     @NotNull
     private Boolean completed;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
 
     public Task() {
 
@@ -49,6 +51,19 @@ public class Task {
 
     public void setCompleted(Boolean completed) {
         this.completed = completed;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    @PrePersist
+    void onCreate() {
+        this.setCreatedDate(new Date());
     }
 
     @Override

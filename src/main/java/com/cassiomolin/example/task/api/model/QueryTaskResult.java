@@ -1,5 +1,7 @@
 package com.cassiomolin.example.task.api.model;
 
+import java.time.ZonedDateTime;
+
 /**
  * API model for returning a task query result.
  *
@@ -12,6 +14,8 @@ public class QueryTaskResult {
     private String description;
 
     private Boolean completed;
+
+    private ZonedDateTime createdDate;
 
     public QueryTaskResult() {
 
@@ -39,5 +43,13 @@ public class QueryTaskResult {
 
     public void setCompleted(Boolean completed) {
         this.completed = completed;
+    }
+
+    public ZonedDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(ZonedDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 }
