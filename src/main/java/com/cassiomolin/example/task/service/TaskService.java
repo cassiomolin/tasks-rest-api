@@ -65,7 +65,7 @@ public class TaskService {
                 .withMatcher("description", match -> match.contains().ignoreCase());
         Example<Task> example = Example.of(task, matcher);
 
-        Sort sort = new Sort(Sort.Direction.ASC, "description");
+        Sort sort = new Sort(Sort.Direction.ASC, "createdDate");
 
         List<Task> list = new ArrayList<>();
         taskRepository.findAll(example, sort).forEach(list::add);
