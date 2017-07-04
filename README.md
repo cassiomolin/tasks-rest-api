@@ -124,5 +124,14 @@ curl -X DELETE \
 
 Alternatively to cURL, you can use [Postman][] to target the REST API. The Postman files are available in the [`postman`][postman GitHub directory] directory.
 
+## Client application
+
+A client application written in Angular 4.x is package with the main application. Browse to `http://localhost:8080`:
+
+<img src="src/main/doc/frontend.png" width="600">
+
+For the client application source code, refer to the [`tasks-frontend-angular`][frontend project] project.
+
 [Postman]: https://www.getpostman.com/
-[postman GitHub directory]: https://github.com/cassiomolin/tasks/tree/master/postman
+[postman GitHub directory]: https://github.com/cassiomolin/tasks-springboot-jersey/tree/master/src/main/postman
+[frontend project]: https://github.com/cassiomolin/tasks-frontend-angular
