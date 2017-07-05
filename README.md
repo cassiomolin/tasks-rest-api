@@ -128,13 +128,13 @@ Alternatively to cURL, you can use [Postman][] to target the REST API. The Postm
 
 ## Client application
 
-A client application written in Angular 4.x is shipped with the main application. The [release artifacts][frontend releases] are downloaded during the build, packed and released as part of the main application.
+A client application written in **Angular** and **TypeScript** is shipped with the main application. 
 
-To use the client application, browse to `http://localhost:8080`:
+The [client application artifacts][frontend releases] are downloaded during the build, packed and released as part of the main application. For the source code, refer to the [`tasks-frontend-angular`][frontend project] project.
+
+The client application is available at `http://localhost:8080`:
 
 <img src="src/main/doc/frontend.png" width="600">
-
-For the client application source code, refer to the [`tasks-frontend-angular`][frontend project] project.
 
 [Postman]: https://www.getpostman.com/
 [postman GitHub directory]: https://github.com/cassiomolin/tasks-springboot-jersey/tree/master/src/main/postman
