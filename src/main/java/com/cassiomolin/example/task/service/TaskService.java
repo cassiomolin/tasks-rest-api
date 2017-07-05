@@ -50,7 +50,7 @@ public class TaskService {
     }
 
     /**
-     * Find tasks.
+     * Find tasks using a filter.
      *
      * @param filter
      * @return
