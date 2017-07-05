@@ -46,7 +46,7 @@ The application provides a REST API that currently supports the following operat
 
 ```bash
 curl -X POST \
-  http://localhost:8080/api/tasks \
+  'http://localhost:8080/api/tasks' \
   -H 'Content-Type: application/json' \
   -d '{
   "description": "Pay internet bill"
@@ -56,7 +56,7 @@ curl -X POST \
 
 ```bash
 curl -X GET \
-  http://localhost:8080/api/tasks \
+  'http://localhost:8080/api/tasks' \
   -H 'Accept: application/json'
 ```
 
@@ -97,7 +97,7 @@ curl -X GET -G \
 
 ```bash
 curl -X GET \
-  http://localhost:8080/api/tasks/5 \
+  'http://localhost:8080/api/tasks/5' \
   -H 'Accept: application/json'
 ```
 
@@ -105,7 +105,7 @@ curl -X GET \
 
 ```bash
 curl -X PUT \
-  http://localhost:8080/api/tasks/5 \
+  'http://localhost:8080/api/tasks/5' \
   -H 'Content-Type: application/json' \
   -d '{
   "description": "Pay electricity bill",
@@ -117,18 +117,37 @@ curl -X PUT \
 
 ```bash
 curl -X PUT \
-  http://localhost:8080/api/tasks/5/completed \
+  'http://localhost:8080/api/tasks/5/completed' \
   -H 'Content-Type: application/json' \
   -d '{
   "value": true
 }'
 ```
 
+### Delete all tasks
+
+```bash
+curl -X DELETE \
+  'http://localhost:8080/api/tasks'
+```
+
+This endpoint supports the following query parameter:
+
+- `completed` (boolean): Delete tasks by completed status.
+
+Deleting tasks by completed status:
+
+```bash
+curl -X DELETE -G \
+  'http://localhost:8080/api/tasks' \
+  -d 'completed=true'
+```
+
 ### Delete a task
 
 ```bash
 curl -X DELETE \
-  http://localhost:8080/api/tasks/5
+  'http://localhost:8080/api/tasks/5'
 ```
 
 ## Targeting the API with Postman
