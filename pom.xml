@@ -16,7 +16,7 @@
         <mapstruct.version>1.1.0.Final</mapstruct.version>
         <rest-assured.version>3.0.3</rest-assured.version>
         <jackson.version>2.8.8</jackson.version>
-        <frontend-application.version>1.0-alpha-1</frontend-application.version>
+        <frontend-application.version>1.0-alpha-2</frontend-application.version>
     </properties>
 
     <dependencyManagement>
@@ -146,7 +146,7 @@
                                 <echo message="Downloading frontend files..."/>
                                 <get src="https://github.com/cassiomolin/tasks-frontend-angular/releases/download/${frontend-application.version}/dist.zip" dest="${project.build.directory}/static.zip"/>
 
-                                <echo message="Unzipping frontend files..."/>
+                                <echo message="Extracting frontend files..."/>
                                 <unzip src="${project.build.directory}/static.zip" dest="${project.build.directory}/static"/>
 
                                 <echo message="Copying frontend files to the correct location..."/>
