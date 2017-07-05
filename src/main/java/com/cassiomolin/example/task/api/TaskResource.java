@@ -59,6 +59,12 @@ public class TaskResource {
         return Response.ok(queryTaskResults).build();
     }
 
+    @DELETE
+    public Response deleteTasks(@QueryParam("completed") Boolean completed) {
+        taskService.deleteTasks(completed);
+        return Response.noContent().build();
+    }
+
     @GET
     @Path("{taskId}")
     public Response getTask(@PathParam("taskId") Long taskId) {

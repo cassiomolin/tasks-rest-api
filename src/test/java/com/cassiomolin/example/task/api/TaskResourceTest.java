@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.ws.rs.core.HttpHeaders;
@@ -180,6 +181,19 @@ public class TaskResourceTest {
             .statusCode(Status.NO_CONTENT.getStatusCode())
         .when()
             .delete("/tasks/{taskId}")
+        .then()
+            .log().all();
+    }
+
+    @Test
+    public void deleteAllCompletedTasks() {
+
+        given()
+            .queryParam("completed", true)
+        .expect()
+            .statusCode(Status.NO_CONTENT.getStatusCode())
+        .when()
+            .delete("/tasks")
         .then()
             .log().all();
     }

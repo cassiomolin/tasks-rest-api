@@ -74,6 +74,25 @@ public class TaskService {
     }
 
     /**
+     * Delete tasks.
+     *
+     * @param completed
+     * @return
+     */
+    public void deleteTasks(Boolean completed) {
+
+        if (completed == null) {
+            taskRepository.deleteAll();
+        } else {
+            Task task = new Task();
+            task.setCompleted(completed);
+            Example<Task> example = Example.of(task);
+            taskRepository.delete(taskRepository.findAll(example));
+        }
+    }
+
+
+    /**
      * Find a task by id.
      *
      * @param taskId
