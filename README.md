@@ -12,7 +12,7 @@ Example of REST API using:
 - **Hibernate Validator:** Bean Validation implemetation to define and validate application constraints.
 - **REST Assured:** Testing framework for REST APIs.
 
-This application features a client application built with **Angular** and **TypeScript**. See the [`tasks-frontend-angular`][frontend project] project for details.
+It features a client application built with **Angular** and **TypeScript**. See the [`tasks-frontend-angular`][frontend project] project for details.
 
 ## Building and running this application
 
@@ -32,7 +32,7 @@ When the application starts up, the database will be populated with some rows.
 
 ## Angular client application
 
-A client application written in **Angular** and **TypeScript** is shipped with the main application and it's available at `http://localhost:8080`:
+An **Angular** and **TypeScript** client application is shipped with the main application and it's available at `http://localhost:8080`:
 
 <img src="src/main/doc/frontend.png" width="600">
 
