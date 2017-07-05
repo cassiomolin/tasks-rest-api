@@ -231,6 +231,48 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "Delete all tasks",
+			"request": {
+				"url": "{{config.baseUrl}}/api/tasks",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete all tasks by completed status",
+			"request": {
+				"url": {
+					"raw": "{{config.baseUrl}}/api/tasks?completed=true",
+					"auth": {},
+					"host": [
+						"{{config",
+						"baseUrl}}"
+					],
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "completed",
+							"value": "true",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }
