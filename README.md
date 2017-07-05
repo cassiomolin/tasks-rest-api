@@ -25,9 +25,18 @@ To build and run this application, follow these steps:
 1. Change into the `target` directory: `cd target`
 1. You should see a file with the following or a similar name: `tasks-springboot-jersey-1.0.jar`.
 1. Execute the JAR: `java -jar tasks-springboot-jersey-1.0.jar`.
-1. The application should be available at `http://localhost:8080/api`.
+1. The REST API will be available at `http://localhost:8080/api`.
+1. A JavaScript client application will be available at `http://localhost:8080`.
 
 When the application starts up, the database will be populated with some rows. 
+
+## Angular client application
+
+A client application written in **Angular** and **TypeScript** is shipped with the main application and it's available at `http://localhost:8080`:
+
+<img src="src/main/doc/frontend.png" width="600">
+
+The [client application artifacts][frontend releases] are downloaded during the build, packed and released as part of the main application. For the source code, refer to the [`tasks-frontend-angular`][frontend project] project.
 
 ## REST API overview
 
@@ -125,16 +134,6 @@ curl -X DELETE \
 ## Targeting the API with Postman
 
 Alternatively to cURL, you can use [Postman][] to target the REST API. The Postman files are available in the [`postman`][postman GitHub directory] directory.
-
-## Client application
-
-A client application written in **Angular** and **TypeScript** is shipped with the main application. 
-
-The [client application artifacts][frontend releases] are downloaded during the build, packed and released as part of the main application. For the source code, refer to the [`tasks-frontend-angular`][frontend project] project.
-
-The client application is available at `http://localhost:8080`:
-
-<img src="src/main/doc/frontend.png" width="600">
 
 [Postman]: https://www.getpostman.com/
 [postman GitHub directory]: https://github.com/cassiomolin/tasks-springboot-jersey/tree/master/src/main/postman
