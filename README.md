@@ -12,6 +12,8 @@ Example of REST API using:
 - **Hibernate Validator:** Bean Validation implemetation to define and validate application constraints.
 - **REST Assured:** Testing framework for REST APIs.
 
+This application features a client application built with **Angular** and **TypeScript**. See the [`tasks-frontend-angular`][frontend project] project for details.
+
 ## Building and running this application
 
 To build and run this application, follow these steps:
