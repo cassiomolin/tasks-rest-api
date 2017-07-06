@@ -1,4 +1,4 @@
-package com.cassiomolin.example.task.api;
+package com.cassiomolin.example.task.api.resource;
 
 
 import com.cassiomolin.example.task.api.model.CreateTaskDetails;

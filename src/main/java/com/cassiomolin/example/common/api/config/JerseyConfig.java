@@ -1,11 +1,11 @@
-package com.cassiomolin.example.common.api;
+package com.cassiomolin.example.common.api.config;
 
-import com.cassiomolin.example.common.api.exception.mapper.ConstraintViolationExceptionMapper;
-import com.cassiomolin.example.common.api.exception.mapper.JsonMappingExceptionMapper;
-import com.cassiomolin.example.common.api.exception.mapper.JsonParseExceptionMapper;
+import com.cassiomolin.example.common.api.exceptionmapper.ConstraintViolationExceptionMapper;
+import com.cassiomolin.example.common.api.exceptionmapper.JsonMappingExceptionMapper;
+import com.cassiomolin.example.common.api.exceptionmapper.JsonParseExceptionMapper;
 import com.cassiomolin.example.common.api.filter.CorsFilter;
 import com.cassiomolin.example.common.api.provider.ObjectMapperProvider;
-import com.cassiomolin.example.task.api.TaskResource;
+import com.cassiomolin.example.task.api.resource.TaskResource;
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import javax.ws.rs.ApplicationPath;
 
 /**
- * Jersey configuration.
+ * Jersey configuration class.
  *
  * @author cassiomolin
  */
