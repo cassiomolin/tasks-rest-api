@@ -23,7 +23,7 @@ import java.net.URI;
 import java.util.List;
 
 /**
- * Component that exposes a REST API for {@link Task}s.
+ * Component that exposes REST API endpoints for {@link Task}s.
  *
  * @author cassiomolin
  */

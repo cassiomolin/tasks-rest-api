@@ -22,6 +22,11 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 
+/**
+ * Tests for the task resource class.
+ *
+ * @author cassiomolin
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class TaskResourceTest {

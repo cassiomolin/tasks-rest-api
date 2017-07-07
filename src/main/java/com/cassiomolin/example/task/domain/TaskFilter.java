@@ -8,7 +8,6 @@ package com.cassiomolin.example.task.domain;
 public class TaskFilter {
 
     private String description;
-
     private Boolean completed;
 
     public TaskFilter() {

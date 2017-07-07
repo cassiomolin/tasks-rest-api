@@ -23,8 +23,8 @@ To build and run this application, follow these steps:
 1. Compile the project: `mvn clean compile`.
 1. Package the application: `mvn package`.
 1. Change into the `target` directory: `cd target`
-1. You should see a file with the following or a similar name: `tasks-springboot-jersey-1.0.jar`.
-1. Execute the JAR: `java -jar tasks-springboot-jersey-1.0.jar`.
+1. You should see a file with the following or a similar name: `tasks-1.0.jar`.
+1. Execute the JAR: `java -jar tasks-1.0.jar`.
 1. The REST API will be available at `http://localhost:8080/api`.
 1. A JavaScript client application will be available at `http://localhost:8080`.
 

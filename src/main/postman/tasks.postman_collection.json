@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "tasks",
-		"_postman_id": "93e11727-f7de-77a0-978c-cc64c444f087",
+		"_postman_id": "e7d9ffe1-387b-6ac3-8373-083413533d29",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -39,7 +39,10 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -76,7 +79,10 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -113,7 +119,10 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -156,7 +165,10 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -173,7 +185,10 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -238,7 +253,10 @@
 				"url": "{{config.baseUrl}}/api/tasks",
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -269,7 +287,10 @@
 				},
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []

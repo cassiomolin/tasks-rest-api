@@ -5,18 +5,21 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cassiomolin.example</groupId>
-    <artifactId>tasks-springboot-jersey</artifactId>
+    <artifactId>tasks</artifactId>
     <version>1.0</version>
 
     <properties>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+
         <spring-boot.version>1.5.4.RELEASE</spring-boot.version>
         <mapstruct.version>1.1.0.Final</mapstruct.version>
         <rest-assured.version>3.0.3</rest-assured.version>
         <jackson.version>2.8.8</jackson.version>
         <client-application.version>1.0-alpha-2</client-application.version>
+
     </properties>
 
     <dependencyManagement>
@@ -33,25 +36,19 @@
 
     <dependencies>
 
-        <!-- Spring Boot Web Starter -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!-- Jersey -->
+        <!-- Spring Boot starter for Jersey -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jersey</artifactId>
         </dependency>
 
-        <!-- Spring Data -->
+        <!-- Spring Boot starter for Spring Data JPA -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- Spring Boot Test -->
+        <!-- Spring Boot starter for tests -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
