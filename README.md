@@ -36,7 +36,9 @@ An **Angular** and **TypeScript** client application is shipped with the main ap
 
 <img src="src/main/doc/frontend.png" width="600">
 
-The [client application artifacts][client releases] are downloaded during the build, packed and released as part of the main application. For the source code, refer to the [`tasks-client-angular`][client project] project.
+For better maintainability, client and server applications source code are kept in different repositories. During the build, the [client application artifacts][client releases] are downloaded, packed and released as part of the main application. 
+
+For the client application source code, refer to the [`tasks-client-angular`][client project] project.
 
 ## REST API overview
 
