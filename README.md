@@ -1,7 +1,7 @@
 # Sample REST API for managing tasks using Spring Boot and Jersey
 
-[![Build Status](https://travis-ci.org/cassiomolin/tasks-springboot-jersey.svg?branch=master)](https://travis-ci.org/cassiomolin/tasks-springboot-jersey)
-[![MIT Licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/cassiomolin/tasks-springboot-jersey/master/LICENSE.txt)
+[![Build Status](https://travis-ci.org/cassiomolin/tasks-rest-api.svg?branch=master)](https://travis-ci.org/cassiomolin/tasks-rest-api)
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/cassiomolin/tasks-rest-api/master/LICENSE.txt)
 
 Example of REST API using:
 
@@ -12,7 +12,7 @@ Example of REST API using:
 - **Hibernate Validator:** Bean Validation implemetation to define and validate application constraints.
 - **REST Assured:** Testing framework for REST APIs.
 
-Besides the REST API, it features a client application built with **Angular** and **TypeScript**. See the [`tasks-frontend-angular`][frontend project] project for details.
+Besides the REST API, it features a client application built with **Angular** and **TypeScript**. See the [`tasks-client-angular`][client project] project for details.
 
 ## Building and running this application
 
@@ -36,7 +36,7 @@ An **Angular** and **TypeScript** client application is shipped with the main ap
 
 <img src="src/main/doc/frontend.png" width="600">
 
-The [client application artifacts][frontend releases] are downloaded during the build, packed and released as part of the main application. For the source code, refer to the [`tasks-frontend-angular`][frontend project] project.
+The [client application artifacts][client releases] are downloaded during the build, packed and released as part of the main application. For the source code, refer to the [`tasks-client-angular`][client project] project.
 
 ## REST API overview
 
@@ -152,9 +152,8 @@ curl -X DELETE \
 
 ## Targeting the API with Postman
 
-Alternatively to cURL, you can use [Postman][] to target the REST API. The Postman files are available in the [`postman`][postman GitHub directory] directory.
+Alternatively to cURL, you can use [Postman][] to target the REST API. The Postman files are available in the [`postman`](src/main/postman) directory.
 
 [Postman]: https://www.getpostman.com/
-[postman GitHub directory]: https://github.com/cassiomolin/tasks-springboot-jersey/tree/master/src/main/postman
-[frontend project]: https://github.com/cassiomolin/tasks-frontend-angular
-[frontend releases]: https://github.com/cassiomolin/tasks-frontend-angular/releases
+[client project]: https://github.com/cassiomolin/tasks-client-angular
+[client releases]: https://github.com/cassiomolin/tasks-client-angular/releases
