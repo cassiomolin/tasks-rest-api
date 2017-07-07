@@ -36,6 +36,12 @@
 
     <dependencies>
 
+        <!-- Spring Boot starter for web applications -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
         <!-- Spring Boot starter for Jersey -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
