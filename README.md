@@ -42,7 +42,7 @@ For the client application source code, refer to the [`tasks-client-angular`][cl
 
 ## REST API overview
 
-The application provides a REST API that currently supports the following operations to manage tasks:
+The application provides a REST API for managing tasks. See the [curl][] scripts below with the supported operations:
 
 ### Create a task
 
@@ -145,7 +145,7 @@ curl -X DELETE -G \
   -d 'completed=true'
 ```
 
-### Delete a task
+### Delete a task by id
 
 ```bash
 curl -X DELETE \
@@ -154,8 +154,9 @@ curl -X DELETE \
 
 ## Targeting the API with Postman
 
-Alternatively to cURL, you can use [Postman][] to target the REST API. The Postman files are available in the [`postman`](src/main/postman) directory.
+Alternatively to [curl][], you can use [Postman][] to target the REST API. The Postman files are available in the [`src/main/postman`](src/main/postman) directory.
 
 [Postman]: https://www.getpostman.com/
 [client project]: https://github.com/cassiomolin/tasks-client-angular
 [client releases]: https://github.com/cassiomolin/tasks-client-angular/releases
+[curl]: https://curl.haxx.se/
