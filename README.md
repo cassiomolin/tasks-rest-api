@@ -144,7 +144,7 @@ This endpoint supports the following query parameter:
 
 - `completed` (boolean): Delete tasks by completed status.
 
-And can be used as following:
+And it can be used as following:
 
 ```bash
 curl -X DELETE -G \
