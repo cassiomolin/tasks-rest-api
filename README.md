@@ -152,7 +152,7 @@ curl -X DELETE \
   'http://localhost:8080/api/tasks/5'
 ```
 
-## Targeting the API with Postman
+## Targeting the REST API with Postman
 
 Alternatively to [curl][], you can use [Postman][] to target the REST API. The Postman collection files are available in the [`src/main/postman`](src/main/postman) directory.
 
