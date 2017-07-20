@@ -54,7 +54,7 @@ curl -X POST \
   "description": "Pay internet bill"
 }'
 ```
-### Get all tasks
+### Get multiple tasks
 
 ```bash
 curl -X GET \
@@ -126,7 +126,14 @@ curl -X PUT \
 }'
 ```
 
-### Delete all tasks
+### Delete a task by id
+
+```bash
+curl -X DELETE \
+  'http://localhost:8080/api/tasks/5'
+```
+
+### Delete multiple tasks
 
 ```bash
 curl -X DELETE \
@@ -143,13 +150,6 @@ And can be used as following:
 curl -X DELETE -G \
   'http://localhost:8080/api/tasks' \
   -d 'completed=true'
-```
-
-### Delete a task by id
-
-```bash
-curl -X DELETE \
-  'http://localhost:8080/api/tasks/5'
 ```
 
 ## Targeting the REST API with Postman
