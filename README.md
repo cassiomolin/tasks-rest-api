@@ -154,7 +154,7 @@ curl -X DELETE \
 
 ## Targeting the API with Postman
 
-Alternatively to [curl][], you can use [Postman][] to target the REST API. The Postman files are available in the [`src/main/postman`](src/main/postman) directory.
+Alternatively to [curl][], you can use [Postman][] to target the REST API. The Postman collection files are available in the [`src/main/postman`](src/main/postman) directory.
 
 [Postman]: https://www.getpostman.com/
 [client project]: https://github.com/cassiomolin/tasks-client-angular
